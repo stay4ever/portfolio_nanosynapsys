@@ -56,65 +56,113 @@ const formatDate = (d: Date) =>
 
       <div class="products-grid">
         <!-- Nanoplasticity -->
-        <div class="product-card violet fade-up">
-          <div class="product-icon violet">🤖</div>
-          <span class="product-badge live"><span class="badge-dot"></span>Live</span>
-          <h3 class="product-name">Nanoplasticity</h3>
-          <p class="product-desc">
-            An AI agent marketplace for digital agencies and freelancers. Deploy
-            Claude-powered agents that run SEO audits, write proposals, detect
-            fraud, and generate white-label client reports — billed per run.
-          </p>
-          <a href="https://www.nanoplasticity.com" target="_blank" rel="noopener" class="product-link violet">
-            Visit nanoplasticity.com
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+        <a href="https://www.nanoplasticity.com" target="_blank" rel="noopener" class="product-card violet fade-up">
+          <div class="product-thumb">
+            <span class="product-badge live"><span class="badge-dot"></span>Live</span>
+            <img src="/screenshots/nanoplasticity.png" alt="Nanoplasticity — AI agent marketplace" loading="lazy" width="1200" height="750" />
+          </div>
+          <div class="product-body">
+            <div class="product-name-row">
+              <h3 class="product-name">Nanoplasticity</h3>
+              <span class="product-domain">nanoplasticity.com</span>
+            </div>
+            <p class="product-desc">
+              An AI agent marketplace for digital agencies and freelancers. Deploy
+              Claude-powered agents that run SEO audits, write proposals, detect
+              fraud, and generate white-label client reports — billed per run.
+            </p>
+            <span class="product-link violet">
+              Visit site
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
         <!-- AI Evolution -->
-        <div class="product-card cyan fade-up delay-1">
-          <div class="product-icon cyan">🧠</div>
-          <span class="product-badge live"><span class="badge-dot"></span>Live</span>
-          <h3 class="product-name">AI Evolution</h3>
-          <p class="product-desc">
-            Australia's AI education and intelligence platform. 26 hands-on
-            courses, a twice-weekly newsletter, and an AI Readiness Quiz — all
-            designed to turn AI anxiety into competitive advantage.
-          </p>
-          <a href="https://www.ai-evolution.com.au" target="_blank" rel="noopener" class="product-link cyan">
-            Visit ai-evolution.com.au
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+        <a href="https://www.ai-evolution.com.au" target="_blank" rel="noopener" class="product-card cyan fade-up delay-1">
+          <div class="product-thumb">
+            <span class="product-badge live"><span class="badge-dot"></span>Live</span>
+            <img src="/screenshots/ai-evolution.png" alt="AI Evolution — Navigate the AI era with confidence" loading="lazy" width="1200" height="750" />
+          </div>
+          <div class="product-body">
+            <div class="product-name-row">
+              <h3 class="product-name">AI Evolution</h3>
+              <span class="product-domain">ai-evolution.com.au</span>
+            </div>
+            <p class="product-desc">
+              Australia's practical AI platform. Twice-weekly newsletter, AI
+              Readiness Quiz, and a 4-week Confidence Program — all designed to
+              turn AI anxiety into competitive advantage.
+            </p>
+            <span class="product-link cyan">
+              Visit site
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- AI Academy -->
+        <a href="https://www.ai-evolution.com.au/academy" target="_blank" rel="noopener" class="product-card green fade-up delay-2">
+          <div class="product-thumb">
+            <span class="product-badge live"><span class="badge-dot"></span>Live</span>
+            <img src="/screenshots/ai-academy.png" alt="AI Academy — level up your AI skills" loading="lazy" width="1200" height="750" />
+          </div>
+          <div class="product-body">
+            <div class="product-name-row">
+              <h3 class="product-name">AI Academy</h3>
+              <span class="product-domain">by AI Evolution</span>
+            </div>
+            <p class="product-desc">
+              26 hands-on courses across 177 lessons — from prompt engineering
+              to multi-agent systems. Gamified, project-based learning with XP,
+              streaks, and badges. Three free courses to start.
+            </p>
+            <span class="product-link green">
+              Explore courses
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
         <!-- KickWiz -->
-        <div class="product-card amber fade-up delay-2">
-          <div class="product-icon amber">🏈</div>
-          <span class="product-badge live"><span class="badge-dot"></span>Live</span>
-          <h3 class="product-name">KickWiz</h3>
-          <p class="product-desc">
-            AFL prediction powered by five specialised AI models. Pick match
-            winners, predict player stats, and simulate season outcomes with
-            confidence-aware intelligence built for Australian Rules Football.
-          </p>
-          <a href="/blog/kickwiz-afl-prediction-engine" class="product-link amber">
-            Read how it's built
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+        <a href="/blog/kickwiz-afl-prediction-engine" class="product-card amber fade-up delay-3">
+          <div class="product-thumb logo">
+            <span class="product-badge live"><span class="badge-dot"></span>On the App Store</span>
+            <img src="/screenshots/kickwiz.png" alt="KickWiz — AFL result predictor wizard" loading="lazy" width="702" height="466" />
+          </div>
+          <div class="product-body">
+            <div class="product-name-row">
+              <h3 class="product-name">KickWiz</h3>
+              <span class="product-domain">iOS · AFL</span>
+            </div>
+            <p class="product-desc">
+              AFL prediction powered by five specialised AI models. Pick match
+              winners, predict player stats, and simulate season outcomes with
+              confidence-aware intelligence built for Australian Rules Football.
+            </p>
+            <span class="product-link amber">
+              Read how it's built
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
         <!-- Coming Soon -->
         <div class="product-card ghost fade-up delay-3">
-          <div class="product-icon gray">✦</div>
-          <span class="product-badge soon">Coming Soon</span>
-          <h3 class="product-name">Next Product</h3>
-          <p class="product-desc">
-            Something new is in the studio. We ship fast — stay tuned for the
-            next product from the Nano Synapsys portfolio.
-          </p>
-          <span class="product-link" style="color:var(--text-dim);cursor:default;">
-            In development
-          </span>
+          <div class="product-thumb placeholder">
+            <span class="product-badge soon">Coming Soon</span>
+            <span>✦</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name-row">
+              <h3 class="product-name">Next Product</h3>
+            </div>
+            <p class="product-desc">
+              Something new is in the studio. We ship fast — stay tuned for the
+              next product from the Nano Synapsys portfolio.
+            </p>
+            <span class="product-link dim">In development</span>
+          </div>
         </div>
       </div>
     </div>
