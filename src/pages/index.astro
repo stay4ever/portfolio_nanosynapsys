@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
+export const prerender = true;
+
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
@@ -59,7 +61,7 @@ const formatDate = (d: Date) =>
         <a href="https://www.nanoplasticity.com" target="_blank" rel="noopener" class="product-card violet fade-up">
           <div class="product-thumb">
             <span class="product-badge live"><span class="badge-dot"></span>Live</span>
-            <img src="/screenshots/nanoplasticity.png" alt="Nanoplasticity — AI agent marketplace" loading="lazy" width="1200" height="750" />
+            <img src="/screenshots/nanoplasticity.webp" alt="Nanoplasticity — AI agent marketplace" loading="lazy" width="1200" height="750" />
           </div>
           <div class="product-body">
             <div class="product-name-row">
@@ -82,7 +84,7 @@ const formatDate = (d: Date) =>
         <a href="https://www.ai-evolution.com.au" target="_blank" rel="noopener" class="product-card cyan fade-up delay-1">
           <div class="product-thumb">
             <span class="product-badge live"><span class="badge-dot"></span>Live</span>
-            <img src="/screenshots/ai-evolution.png" alt="AI Evolution — Navigate the AI era with confidence" loading="lazy" width="1200" height="750" />
+            <img src="/screenshots/ai-evolution.webp" alt="AI Evolution — Navigate the AI era with confidence" loading="lazy" width="1200" height="750" />
           </div>
           <div class="product-body">
             <div class="product-name-row">
@@ -105,7 +107,7 @@ const formatDate = (d: Date) =>
         <a href="https://www.ai-evolution.com.au/academy" target="_blank" rel="noopener" class="product-card green fade-up delay-2">
           <div class="product-thumb">
             <span class="product-badge live"><span class="badge-dot"></span>Live</span>
-            <img src="/screenshots/ai-academy.png" alt="AI Academy — level up your AI skills" loading="lazy" width="1200" height="750" />
+            <img src="/screenshots/ai-academy.webp" alt="AI Academy — level up your AI skills" loading="lazy" width="1200" height="750" />
           </div>
           <div class="product-body">
             <div class="product-name-row">
@@ -127,8 +129,8 @@ const formatDate = (d: Date) =>
         <!-- KickWiz -->
         <a href="/blog/kickwiz-afl-prediction-engine" class="product-card amber fade-up delay-3">
           <div class="product-thumb logo">
-            <span class="product-badge live"><span class="badge-dot"></span>On the App Store</span>
-            <img src="/screenshots/kickwiz.png" alt="KickWiz — AFL result predictor wizard" loading="lazy" width="702" height="466" />
+            <span class="product-badge live"><span class="badge-dot"></span>Launching Soon</span>
+            <img src="/screenshots/kickwiz.webp" alt="KickWiz — AFL result predictor wizard" loading="lazy" width="702" height="466" />
           </div>
           <div class="product-body">
             <div class="product-name-row">
@@ -175,7 +177,7 @@ const formatDate = (d: Date) =>
       <div class="kw-phones fade-up">
         <div class="kw-phones-glow" aria-hidden="true"></div>
         <img
-          src="/screenshots/kickwiz-phones.png"
+          src="/screenshots/kickwiz-phones.webp"
           alt="KickWiz iOS app — splash and predictions screen"
           loading="lazy"
           width="690"
@@ -186,7 +188,7 @@ const formatDate = (d: Date) =>
       <div class="kw-copy fade-up delay-1">
         <span class="kw-tag">
           <span class="kw-tag-dot"></span>
-          Featured · iOS Launch
+          Launching Soon · iOS
         </span>
 
         <h2 class="kw-headline">
@@ -212,7 +214,8 @@ const formatDate = (d: Date) =>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <span class="kw-btn kw-btn-ghost">
-            Coming to the App Store
+            <svg width="14" height="14" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM256.6 102.8c23.7-28.1 21.6-53.7 20.9-63-22.4 1.3-48.3 15.3-63.1 32.4-16.3 18.4-25.9 41.1-23.8 64.4 24.2 1.9 46.2-9.5 66-33.8z"/></svg>
+            Launching soon on App Store
           </span>
         </div>
       </div>
