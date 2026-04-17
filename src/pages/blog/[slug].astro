@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+const { slug } = Astro.params;
+
+const allPosts = await getCollection('blog');
+const post = allPosts.find(p => p.slug === slug);
+
+if (!post) {
+  return Astro.redirect('/blog');
+}
+
+const { Content } = await render(post);
+---
+
+<BlogPost frontmatter={post.data}>
+  <Content />
+</BlogPost>

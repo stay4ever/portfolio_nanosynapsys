@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const formatDate = (d: Date) =>
+  new Intl.DateTimeFormat('en-AU', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+---
+
+<Base
+  title="Blog — Nano Synapsys"
+  description="Thinking from the studio — product builds, AI insights, and the story behind what we're shipping."
+>
+  <section class="blog-hero">
+    <div class="container">
+      <p class="section-tag">From the Studio</p>
+      <h1 style="font-size:clamp(40px,6vw,72px);margin-bottom:16px;">Blog</h1>
+      <p style="font-size:18px;color:var(--text-muted);max-width:480px;line-height:1.75;">
+        Product builds, AI insights, and the thinking behind what we ship.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-top:64px;padding-bottom:120px;">
+    {posts.length === 0 ? (
+      <div style="text-align:center;padding:80px 0;color:var(--text-muted);">
+        <p style="font-size:48px;margin-bottom:16px;">✦</p>
+        <p style="font-size:18px;">Posts coming soon.</p>
+      </div>
+    ) : (
+      <div class="blog-grid">
+        {posts.map((post, i) => (
+          <a href={`/blog/${post.slug}`} class={`blog-card fade-up delay-${i % 3}`} style="display:flex;flex-direction:column;">
+            <span class="blog-tag">{post.data.tags[0] ?? 'studio'}</span>
+            <h2 class="blog-title">{post.data.title}</h2>
+            <p class="blog-excerpt">{post.data.description}</p>
+            <div class="blog-meta-row">
+              <span>{formatDate(post.data.date)}</span>
+              <span class="blog-read-more">
+                Read
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</Base>

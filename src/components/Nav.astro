@@ -1,0 +1,25 @@
+---
+const links = [
+  { label: 'Products', href: '/#products' },
+  { label: 'About', href: '/#about' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/#contact' },
+];
+---
+
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-mark">NS</div>
+      <span>nano synapsys</span>
+    </a>
+
+    <ul class="nav-links">
+      {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+    </ul>
+
+    <div class="nav-cta">
+      <a href="/#contact" class="btn-primary" style="padding:9px 20px;font-size:13px;">Get in touch</a>
+    </div>
+  </div>
+</nav>

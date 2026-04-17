@@ -1,0 +1,31 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  lastUpdated: string;
+}
+
+const { title, subtitle, lastUpdated } = Astro.props;
+---
+
+<Base title={`${title} — KickWiz`} description={subtitle}>
+  <section class="legal-hero">
+    <div class="container">
+      <a href="/" class="section-tag" style="margin-bottom:24px;display:inline-flex;">← Nano Synapsys</a>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+        <span style="font-size:24px;">🏈</span>
+        <span style="font-size:13px;font-weight:600;color:var(--amber-light);font-family:'Space Grotesk',sans-serif;">KickWiz</span>
+      </div>
+      <h1 style="font-size:clamp(36px,5vw,60px);margin-bottom:16px;">{title}</h1>
+      <p style="font-size:16px;color:var(--text-muted);">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="legal-body">
+      <slot />
+    </div>
+  </div>
+</Base>

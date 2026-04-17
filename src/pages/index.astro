@@ -1,0 +1,296 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const formatDate = (d: Date) =>
+  new Intl.DateTimeFormat('en-AU', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+---
+
+<Base
+  title="Nano Synapsys — Building Intelligence. Shipping Products."
+  description="A product studio at the intersection of AI and real-world impact. We build, ship, and scale AI-powered products that matter."
+>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        AI Product Studio
+      </div>
+      <h1 class="hero-title">
+        Building<br />
+        <span class="gradient-text">Intelligence.</span><br />
+        Shipping Products.
+      </h1>
+      <p class="hero-subtitle">
+        Nano Synapsys is a product studio obsessed with one thing — shipping
+        AI-powered software that actually works in the real world.
+      </p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">
+          Explore Products
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn-secondary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCTS ──────────────────────────────────────── -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-tag">Our Products</p>
+        <h2 class="section-title">From concept to production</h2>
+        <p class="section-desc">
+          Each product we ship is AI-first from the first commit — built to deliver
+          real value, at scale, without waste.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Nanoplasticity -->
+        <div class="product-card violet fade-up">
+          <div class="product-icon violet">🤖</div>
+          <span class="product-badge live"><span class="badge-dot"></span>Live</span>
+          <h3 class="product-name">Nanoplasticity</h3>
+          <p class="product-desc">
+            An AI agent marketplace for digital agencies and freelancers. Deploy
+            Claude-powered agents that run SEO audits, write proposals, detect
+            fraud, and generate white-label client reports — billed per run.
+          </p>
+          <a href="https://www.nanoplasticity.com" target="_blank" rel="noopener" class="product-link violet">
+            Visit nanoplasticity.com
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- AI Evolution -->
+        <div class="product-card cyan fade-up delay-1">
+          <div class="product-icon cyan">🧠</div>
+          <span class="product-badge live"><span class="badge-dot"></span>Live</span>
+          <h3 class="product-name">AI Evolution</h3>
+          <p class="product-desc">
+            Australia's AI education and intelligence platform. 26 hands-on
+            courses, a twice-weekly newsletter, and an AI Readiness Quiz — all
+            designed to turn AI anxiety into competitive advantage.
+          </p>
+          <a href="https://www.ai-evolution.com.au" target="_blank" rel="noopener" class="product-link cyan">
+            Visit ai-evolution.com.au
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- KickWiz -->
+        <div class="product-card amber fade-up delay-2">
+          <div class="product-icon amber">🏈</div>
+          <span class="product-badge live"><span class="badge-dot"></span>Live</span>
+          <h3 class="product-name">KickWiz</h3>
+          <p class="product-desc">
+            AFL prediction powered by five specialised AI models. Pick match
+            winners, predict player stats, and simulate season outcomes with
+            confidence-aware intelligence built for Australian Rules Football.
+          </p>
+          <a href="/blog/kickwiz-afl-prediction-engine" class="product-link amber">
+            Read how it's built
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="product-card ghost fade-up delay-3">
+          <div class="product-icon gray">✦</div>
+          <span class="product-badge soon">Coming Soon</span>
+          <h3 class="product-name">Next Product</h3>
+          <p class="product-desc">
+            Something new is in the studio. We ship fast — stay tuned for the
+            next product from the Nano Synapsys portfolio.
+          </p>
+          <span class="product-link" style="color:var(--text-dim);cursor:default;">
+            In development
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="fade-up">
+          <p class="section-tag">About Us</p>
+          <h2 class="about-title">
+            We operate in<br />
+            <span class="gradient-text">nano-company mode.</span>
+          </h2>
+          <p class="about-body">
+            Maximum output, minimum overhead. Nano Synapsys is a product studio
+            that moves from idea to production-grade software faster than most
+            companies can finish their sprint planning. Every product we build is
+            AI-first from the first commit.
+          </p>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="pillar-icon">🚀</div>
+              <div>
+                <p class="pillar-name">Ship Fast</p>
+                <p class="pillar-desc">From idea to production in weeks. We cut the unnecessary and focus on what ships.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🧠</div>
+              <div>
+                <p class="pillar-name">AI-First</p>
+                <p class="pillar-desc">Every product is built with intelligence at its core — not bolted on as an afterthought.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🌏</div>
+              <div>
+                <p class="pillar-name">Global Reach</p>
+                <p class="pillar-desc">Building for Australia, America, and beyond. Products that work where people are.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual fade-up delay-2">
+          <div class="orb-outer">
+            <div class="orb-mid">
+              <div class="orb-inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BLOG ──────────────────────────────────────────── -->
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-header fade-up" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+        <div>
+          <p class="section-tag">From the Studio</p>
+          <h2 class="section-title">Latest thinking</h2>
+        </div>
+        <a href="/blog" class="btn-secondary" style="align-self:flex-end;">View all posts</a>
+      </div>
+
+      <div class="blog-grid">
+        {posts.map((post, i) => (
+          <a href={`/blog/${post.slug}`} class={`blog-card fade-up delay-${i}`} style="display:flex;flex-direction:column;">
+            <span class="blog-tag">{post.data.tags[0] ?? 'studio'}</span>
+            <h3 class="blog-title">{post.data.title}</h3>
+            <p class="blog-excerpt">{post.data.description}</p>
+            <div class="blog-meta-row">
+              <span>{formatDate(post.data.date)}</span>
+              <span class="blog-read-more">
+                Read
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────── -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Left -->
+        <div class="fade-up">
+          <p class="section-tag">Get in Touch</p>
+          <h2 class="contact-title">Let's build something together.</h2>
+          <p class="contact-subtitle">
+            Have an idea, want to collaborate, or just curious about what we're
+            building? We'd love to hear from you.
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <span>hello@nano-synapsys.com</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </div>
+              <!-- Replace # with actual LinkedIn URL when ready -->
+              <a href="#" title="LinkedIn — coming soon">LinkedIn (coming soon)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="fade-up delay-1">
+          <div id="contact-form-wrapper">
+            <form id="contact-form" class="form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Name</label>
+                  <input class="form-input" id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <input class="form-input" id="subject" name="subject" type="text" placeholder="What's this about?" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your idea, project, or question..." required></textarea>
+              </div>
+              <button type="submit" class="form-submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const wrapper = document.getElementById('contact-form-wrapper');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
+      const json = await res.json();
+
+      if (json.success && wrapper) {
+        wrapper.innerHTML = `
+          <div class="form-success">
+            <div class="form-success-icon">✓</div>
+            <h3>Message sent!</h3>
+            <p>Thanks for reaching out. We'll get back to you shortly.</p>
+          </div>`;
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>
