@@ -1,0 +1,79 @@
+---
+interface Props {
+  size?: 'sm' | 'md';
+}
+const { size = 'md' } = Astro.props;
+---
+
+<canvas
+  class={`brain-logo ${size}`}
+  width="16"
+  height="12"
+  aria-hidden="true"
+></canvas>
+
+<script>
+  const SPRITE = [
+    [0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0],
+    [0,1,1,1,1,1,1,0,1,1,1,1,1,1,0,0],
+    [1,1,3,1,1,1,1,1,1,1,1,1,1,3,1,0],
+    [1,3,3,1,2,2,1,1,1,1,2,2,1,3,3,1],
+    [1,1,1,1,2,2,2,2,2,2,2,2,1,1,1,1],
+    [1,1,1,1,1,2,2,1,1,2,2,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,1,4,4,1,1,1,1,1,1,1,1,4,4,1,1],
+    [1,1,4,5,1,1,1,1,1,1,1,1,4,5,1,1],
+    [1,1,1,1,6,6,6,6,6,6,6,1,1,1,1,1],
+    [0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0],
+    [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0],
+  ];
+  const BLINK = SPRITE.map(r => [...r]);
+  BLINK[7] = Array(16).fill(1);
+  BLINK[8] = Array(16).fill(1);
+  const PALETTE: Record<number, string> = {
+    1: '#FF6BA8', 2: '#B03060', 3: '#FFB0D0',
+    4: '#FFFFFF', 5: '#1A1A2E', 6: '#FF2255',
+  };
+
+  function paint(ctx: CanvasRenderingContext2D, sprite: number[][]) {
+    ctx.clearRect(0, 0, 16, 12);
+    for (let row = 0; row < sprite.length; row++) {
+      for (let col = 0; col < sprite[row].length; col++) {
+        const v = sprite[row][col];
+        if (!v) continue;
+        ctx.fillStyle = PALETTE[v];
+        ctx.fillRect(col, row, 1, 1);
+      }
+    }
+  }
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll<HTMLCanvasElement>('canvas.brain-logo').forEach(canvas => {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    ctx.imageSmoothingEnabled = false;
+    paint(ctx, SPRITE);
+    if (reduced) return;
+
+    const scheduleBlink = () => {
+      const wait = 3500 + Math.random() * 3500;
+      setTimeout(() => {
+        paint(ctx, BLINK);
+        setTimeout(() => { paint(ctx, SPRITE); scheduleBlink(); }, 140);
+      }, wait);
+    };
+    scheduleBlink();
+  });
+</script>
+
+<style>
+  canvas.brain-logo {
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 2px 6px rgba(255, 107, 168, 0.35));
+  }
+  canvas.brain-logo.md { width: 44px; height: 33px; }
+  canvas.brain-logo.sm { width: 36px; height: 27px; }
+</style>

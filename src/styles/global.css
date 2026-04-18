@@ -168,19 +168,6 @@ img { max-width: 100%; }
   font-size: 17px;
   font-weight: 700;
 }
-.nav-logo-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--violet), var(--cyan));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
-}
 .nav-links {
   display: flex;
   align-items: center;
