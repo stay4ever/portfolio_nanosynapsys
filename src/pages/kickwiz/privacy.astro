@@ -6,149 +6,147 @@ export const prerender = true;
 
 <LegalPage
   title="Privacy Policy"
-  subtitle="KickWiz Privacy Policy — how we collect, use, and protect your data."
-  lastUpdated="17 April 2026"
+  subtitle="KickWiz Privacy Policy — how we handle data, what we do not collect, and how subscription access works."
+  lastUpdated="18 April 2026"
 >
   <h2>1. Overview</h2>
   <p>
-    KickWiz ("we", "our", "the App") respects your privacy. This Privacy Policy explains what data we collect,
-    how we use it, and your rights regarding your information. This policy complies with the Apple App Store
-    guidelines, the Australian Privacy Act 1988, and applicable data protection regulations.
+    KickWiz ("we", "our", "the App") is published by Nano Synapsys. This Privacy Policy explains what data
+    the App handles, how access is granted, and your rights. It complies with the Apple App Store guidelines,
+    the Australian Privacy Act 1988, and applicable data protection regulations.
   </p>
 
-  <h2>2. Data We Collect</h2>
+  <h2>2. No Account, No Personal Information</h2>
+  <p>
+    KickWiz does not require an account, sign-in, or personal information to use. There is no Sign in with
+    Apple, no email and password login, no third-party login, and no sign-up flow of any kind. You can install
+    the App and start using it immediately — access is granted automatically as soon as your subscription
+    (or free trial) is active.
+  </p>
 
-  <h3>2.1 Data You Provide</h3>
+  <h2>3. Data We Do Not Collect</h2>
+  <p>The App does not collect, store, or transmit any of the following:</p>
+  <ul>
+    <li>Names, email addresses, phone numbers, or any other contact details</li>
+    <li>Apple ID, anonymised Apple identifier, private relay email, or any third-party login identifier</li>
+    <li>Location, contacts, photos, microphone, camera, or motion data</li>
+    <li>Browsing history or device fingerprints</li>
+    <li>Advertising identifiers — the App contains no advertising SDKs</li>
+    <li>Health, fitness, or financial information</li>
+  </ul>
+
+  <h2>4. The Only Data Class We Declare: Purchase History</h2>
+  <p>
+    The single data class declared in the App Store privacy manifest is <strong>Purchase History</strong> —
+    specifically, the active or inactive state of your KickWiz subscription as reported by Apple's StoreKit.
+  </p>
   <div class="table-scroll">
     <table>
       <thead><tr><th>Data Type</th><th>Purpose</th><th>Linked to Identity</th><th>Used for Tracking</th></tr></thead>
       <tbody>
-        <tr><td><strong>Name</strong> (via Sign in with Apple)</td><td>Display personalisation</td><td>No</td><td>No</td></tr>
-        <tr><td><strong>User ID</strong> (local device UUID)</td><td>App functionality</td><td>No</td><td>No</td></tr>
+        <tr>
+          <td><strong>Subscription state</strong> (Purchase History)</td>
+          <td>Grant access to App features</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
       </tbody>
     </table>
   </div>
-  <ul>
-    <li><strong>Sign in with Apple</strong>: If you choose to sign in, we receive your name and an anonymised Apple user identifier. Apple may provide a private relay email address. We store this locally on your device only.</li>
-    <li><strong>API Key</strong> (optional): Pro users may provide their own Anthropic API key, stored securely in the iOS Keychain.</li>
-  </ul>
-
-  <h3>2.2 Data We Collect Automatically</h3>
-  <div class="table-scroll">
-    <table>
-      <thead><tr><th>Data Type</th><th>Purpose</th><th>Storage</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Subscription status</strong></td><td>Unlock Pro features</td><td>Apple-managed (StoreKit)</td></tr>
-        <tr><td><strong>Cached match data</strong></td><td>Offline access, performance</td><td>Device-only (SwiftData)</td></tr>
-        <tr><td><strong>Generated predictions</strong></td><td>Analysis display</td><td>Device + backend (anonymised)</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>2.3 Data We Do NOT Collect</h3>
-  <ul>
-    <li>Location data</li>
-    <li>Contacts or address book</li>
-    <li>Photos or media</li>
-    <li>Browsing history</li>
-    <li>Advertising identifiers (IDFA)</li>
-    <li>Device fingerprints</li>
-    <li>Health or fitness data</li>
-    <li>Financial or payment information (handled entirely by Apple)</li>
-  </ul>
-
-  <h2>3. How We Use Your Data</h2>
-  <ul>
-    <li><strong>App Functionality</strong>: Display your name, manage subscription tier, generate predictions, cache data for offline use.</li>
-    <li><strong>AI Analysis</strong> (Pro tier): When you request AI-powered analysis, match statistics (team names, scores, player stats, injury data) are sent to Anthropic's Claude API for processing. <strong>No personal information is included in AI requests.</strong></li>
-    <li><strong>Prediction Storage</strong>: Generated predictions are sent anonymously to our backend for post-match accuracy tracking. No user identifier is attached.</li>
-  </ul>
-
-  <h2>4. AI Processing Disclosure</h2>
-
-  <h3>4.1 What AI Processes</h3>
-  <p>KickWiz uses Anthropic's Claude AI to enhance match predictions for Pro subscribers. The AI processes:</p>
-  <ul>
-    <li>Team statistics and form data</li>
-    <li>Player performance metrics</li>
-    <li>Historical match results</li>
-    <li>Venue and conditions data</li>
-  </ul>
-
-  <h3>4.2 What AI Does NOT Process</h3>
-  <ul>
-    <li>Your name or identity</li>
-    <li>Your location</li>
-    <li>Your betting history or financial data</li>
-    <li>Any personal information</li>
-  </ul>
-
-  <h3>4.3 AI Data Handling</h3>
   <p>
-    Data sent to Anthropic's API is processed under Anthropic's Usage Policy. Anthropic does not use API inputs
-    to train models. AI-generated content is clearly labelled within the App as "Deep AI Analysis."
+    Subscription state is read on-demand from Apple StoreKit
+    (<code>Transaction.currentEntitlements</code>). It is not stored on any KickWiz server. New subscribers
+    receive a 5-day free trial; after the trial, the subscription auto-renews monthly unless cancelled.
+    Apple — not KickWiz — manages your payment information, billing, family sharing, and refund processing.
+    We never see your credit card details or Apple ID.
   </p>
 
-  <h2>5. Third-Party Services</h2>
+  <h2>5. AI Analysis (Anthropic Claude API)</h2>
+  <p>
+    For active subscribers, KickWiz uses Anthropic's Claude API to generate match analysis. The data sent
+    to the Claude API is strictly public match data:
+  </p>
+  <ul>
+    <li>Team statistics and form</li>
+    <li>Player performance metrics</li>
+    <li>Historical fixture results</li>
+    <li>Venue and conditions data</li>
+  </ul>
+  <p>
+    No personally identifiable information is included in any request. Because the App holds no personal
+    information about you, there is no personal data to send. Anthropic processes API inputs under its
+    Usage Policy and <strong>does not use API inputs to train its models</strong>. AI-generated content is
+    clearly labelled within the App as "Deep AI Analysis."
+  </p>
+
+  <h2>6. AFL Data Sources</h2>
+  <p>
+    Match, fixture, ladder, and player data is sourced from the public Squiggle API and AFL.com.au. These
+    are read-only requests for public information; no data about you is sent to either source.
+  </p>
+
+  <h2>7. On-Device Storage</h2>
+  <ul>
+    <li><strong>Cached match data</strong>: Public AFL data and generated analyses are cached on your device only (SwiftData) so the App is fast and works offline.</li>
+    <li><strong>Preferences</strong>: App preferences are stored in UserDefaults on your device.</li>
+    <li><strong>Encryption</strong>: All network communication uses HTTPS/TLS.</li>
+  </ul>
+  <p>
+    None of this on-device data is synced to a KickWiz server, and all of it is removed when you delete
+    the App.
+  </p>
+
+  <h2>8. Third-Party Services</h2>
   <div class="table-scroll">
     <table>
       <thead><tr><th>Service</th><th>Data Shared</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td><strong>Apple (StoreKit)</strong></td><td>Subscription transactions</td><td>Payment processing</td></tr>
-        <tr><td><strong>Anthropic Claude API</strong></td><td>Match statistics (no PII)</td><td>AI analysis (Pro only)</td></tr>
+        <tr><td><strong>Apple (StoreKit)</strong></td><td>Subscription transactions</td><td>Payment processing &amp; access entitlement</td></tr>
+        <tr><td><strong>Anthropic Claude API</strong></td><td>Public match data only (no PII)</td><td>AI match analysis</td></tr>
         <tr><td><strong>Squiggle API</strong></td><td>None (read-only)</td><td>AFL match data source</td></tr>
-        <tr><td><strong>KickWiz Backend</strong></td><td>Anonymous predictions</td><td>Accuracy tracking</td></tr>
+        <tr><td><strong>AFL.com.au</strong></td><td>None (read-only)</td><td>AFL match data source</td></tr>
       </tbody>
     </table>
   </div>
-  <p>We do not sell, rent, or share your personal data with third parties for marketing or advertising purposes.</p>
-
-  <h2>6. Data Storage and Security</h2>
-  <ul>
-    <li><strong>On-device</strong>: User preferences stored in UserDefaults; API keys in iOS Keychain (encrypted at rest); cached data in SwiftData (encrypted on iOS 17+).</li>
-    <li><strong>Backend</strong>: Anonymous prediction data stored on servers in Sydney, Australia (Fly.io). No user-identifiable information is stored server-side.</li>
-    <li><strong>Encryption</strong>: All network communication uses HTTPS/TLS. Keychain data is protected by iOS hardware encryption.</li>
-  </ul>
-
-  <h2>7. Data Retention</h2>
-  <ul>
-    <li><strong>On-device data</strong>: Retained until you delete the App or clear data manually.</li>
-    <li><strong>Backend predictions</strong>: Retained for the current AFL season for accuracy analysis; deleted after season end.</li>
-    <li><strong>Apple Sign-In data</strong>: Stored locally only; deleted when you sign out or delete the App.</li>
-  </ul>
-
-  <h2>8. Your Rights</h2>
-  <p>You have the right to:</p>
-  <ul>
-    <li><strong>Access</strong> your data: View all stored data within the App's Account section.</li>
-    <li><strong>Delete</strong> your data: Delete the App to remove all local data. Contact us to request deletion of backend prediction data.</li>
-    <li><strong>Opt out</strong> of AI processing: Use the free tier (no AI data sent to Anthropic).</li>
-    <li><strong>Manage subscriptions</strong>: Cancel anytime via Settings &gt; Apple ID &gt; Subscriptions.</li>
-  </ul>
-
-  <h2>9. Children's Privacy</h2>
   <p>
-    KickWiz is rated 17+ and is not intended for children under 17. We do not knowingly collect data from children.
-    If you believe a child has provided us with data, contact us for removal.
+    We do not sell, rent, or share data with third parties for marketing or advertising purposes.
   </p>
 
-  <h2>10. Changes to This Policy</h2>
+  <h2>9. Your Rights</h2>
   <p>
-    We may update this Privacy Policy to reflect changes in our practices or legal requirements. The "Last Updated"
-    date at the top indicates the latest revision. Continued use of the App after changes constitutes acceptance.
+    Because KickWiz collects no personal information, there is no personal data for us to provide,
+    correct, or delete on your behalf. To manage your relationship with the App:
   </p>
-
-  <h2>11. Apple Privacy Manifest</h2>
-  <p>This App includes a Privacy Manifest (PrivacyInfo.xcprivacy) declaring:</p>
   <ul>
-    <li><strong>Tracking</strong>: No tracking of users across apps or websites</li>
-    <li><strong>Collected Data</strong>: User ID (device-local), Name (optional), Purchase History (subscription status)</li>
-    <li><strong>Required Reason APIs</strong>: UserDefaults (CA92.1 — app functionality)</li>
+    <li><strong>Delete all local data</strong>: Uninstall the App. All cached data is removed with it.</li>
+    <li><strong>Manage your subscription</strong>: Settings &gt; Apple ID &gt; Subscriptions on your device.</li>
+    <li><strong>Contact us</strong>: For any questions about this policy, email <a href="mailto:support@nano-synapsys.com">support@nano-synapsys.com</a>.</li>
   </ul>
 
-  <h2>12. Contact</h2>
+  <h2>10. Children's Privacy</h2>
   <p>
-    For privacy inquiries or data deletion requests:<br />
+    KickWiz is rated 17+ and is not intended for children under 17. As the App collects no personal
+    information from anyone, this is enforced by design.
+  </p>
+
+  <h2>11. Changes to This Policy</h2>
+  <p>
+    We may update this Privacy Policy to reflect changes in our practices or legal requirements. The
+    "Last Updated" date at the top indicates the latest revision. Continued use of the App after changes
+    constitutes acceptance.
+  </p>
+
+  <h2>12. Apple Privacy Manifest</h2>
+  <p>The App includes a Privacy Manifest (<code>PrivacyInfo.xcprivacy</code>) declaring:</p>
+  <ul>
+    <li><strong>Tracking</strong>: No tracking of users across apps or websites.</li>
+    <li><strong>Collected Data</strong>: Purchase History only — subscription active/inactive state.</li>
+    <li><strong>Required Reason APIs</strong>: UserDefaults (CA92.1 — app functionality).</li>
+  </ul>
+
+  <h2>13. Contact</h2>
+  <p>
+    For privacy inquiries:<br />
     Email: <a href="mailto:support@nano-synapsys.com">support@nano-synapsys.com</a>
   </p>
 </LegalPage>
