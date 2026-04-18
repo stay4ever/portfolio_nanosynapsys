@@ -14,6 +14,8 @@
   --amber: #f59e0b;
   --amber-light: #fbbf24;
   --green: #22c55e;
+  --rose: #ec4899;
+  --rose-light: #f9a8d4;
   --text: #eeeeff;
   --text-muted: #6b6b90;
   --text-dim: #44446a;
@@ -303,6 +305,8 @@ img { max-width: 100%; }
 .product-card.green::before { background: radial-gradient(ellipse at 20% 0%, rgba(34,197,94,0.12), transparent 70%); }
 .product-card.amber:hover { border-color: rgba(245,158,11,0.4); box-shadow: 0 20px 60px rgba(245,158,11,0.15); }
 .product-card.amber::before { background: radial-gradient(ellipse at 20% 0%, rgba(245,158,11,0.12), transparent 70%); }
+.product-card.rose:hover { border-color: rgba(236,72,153,0.4); box-shadow: 0 20px 60px rgba(236,72,153,0.15); }
+.product-card.rose::before { background: radial-gradient(ellipse at 20% 0%, rgba(236,72,153,0.12), transparent 70%); }
 
 .product-card.ghost { opacity: 0.55; cursor: default; }
 .product-card.ghost:hover { transform: none; border-color: var(--border); box-shadow: none; }
@@ -418,6 +422,7 @@ img { max-width: 100%; }
 .product-link.cyan { color: var(--cyan-light); }
 .product-link.green { color: #4ade80; }
 .product-link.amber { color: var(--amber-light); }
+.product-link.rose { color: var(--rose-light); }
 .product-link.dim { color: var(--text-dim); }
 
 /* ─── KICKWIZ SPOTLIGHT ───────────────────────────────── */
