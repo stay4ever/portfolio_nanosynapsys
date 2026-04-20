@@ -294,6 +294,13 @@ img { max-width: 100%; }
 .product-card.amber::before { background: radial-gradient(ellipse at 20% 0%, rgba(245,158,11,0.12), transparent 70%); }
 .product-card.rose:hover { border-color: rgba(236,72,153,0.4); box-shadow: 0 20px 60px rgba(236,72,153,0.15); }
 .product-card.rose::before { background: radial-gradient(ellipse at 20% 0%, rgba(236,72,153,0.12), transparent 70%); }
+.product-card.emerald:hover { border-color: rgba(16,185,129,0.4); box-shadow: 0 20px 60px rgba(16,185,129,0.18); }
+.product-card.emerald::before { background: radial-gradient(ellipse at 20% 0%, rgba(16,185,129,0.12), transparent 70%); }
+.product-thumb.phones.emerald-bg {
+  background: radial-gradient(ellipse 65% 70% at 50% 55%, rgba(16,185,129,0.18), transparent 70%),
+    linear-gradient(135deg, #041a12 0%, #0a2e1f 55%, #041a12 100%);
+}
+.product-link.emerald { color: #34d399; }
 
 .product-card.ghost { opacity: 0.55; cursor: default; }
 .product-card.ghost:hover { transform: none; border-color: var(--border); box-shadow: none; }

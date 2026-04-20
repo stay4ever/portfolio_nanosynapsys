@@ -1,0 +1,494 @@
+---
+import Base from '../../layouts/Base.astro';
+export const prerender = true;
+---
+
+<Base
+  title="Activ365 — Daily Workout Goal Tracker for iOS"
+  description="Set a monthly or yearly workout goal, log every session on a beautiful calendar, and watch your consistency build — no subscription, no sign-up, 100% offline."
+  ogImage="/screenshots/activ365.png"
+>
+
+  <style>
+    /* ── Hero ─────────────────────────────────────────────── */
+    .a365-hero {
+      position: relative;
+      padding: 100px 0 80px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .a365-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(16,185,129,0.14), transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(16,185,129,0.07), transparent 60%);
+      pointer-events: none;
+    }
+    .a365-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.25);
+      color: #34d399;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .a365-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #34d399; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .a365-hero h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 22px;
+    }
+    .a365-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .a365-hero p {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+    .a365-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-emerald {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #10b981;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-emerald:hover { background: #059669; transform: translateY(-2px); }
+    .btn-ghost-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost-sm:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+    /* ── Phone mockup ─────────────────────────────────────── */
+    .a365-phone-wrap {
+      position: relative;
+      margin: 60px auto 0;
+      max-width: 280px;
+    }
+    .a365-phone-glow {
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(16,185,129,0.22), transparent 70%);
+      pointer-events: none;
+    }
+    .a365-phone-img {
+      width: 100%;
+      border-radius: 36px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+      display: block;
+    }
+
+    /* ── Stats strip ──────────────────────────────────────── */
+    .a365-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 72px 0;
+    }
+    .a365-stat-num {
+      font-size: 42px;
+      font-weight: 800;
+      color: #34d399;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .a365-stat-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Features ─────────────────────────────────────────── */
+    .a365-features {
+      padding: 80px 0;
+    }
+    .a365-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .a365-feat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .a365-feat:hover {
+      border-color: rgba(16,185,129,0.35);
+      box-shadow: 0 12px 40px rgba(16,185,129,0.1);
+    }
+    .a365-feat-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .a365-feat h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .a365-feat p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── How it works ─────────────────────────────────────── */
+    .a365-how {
+      padding: 80px 0;
+      background: linear-gradient(180deg, transparent, rgba(16,185,129,0.04) 50%, transparent);
+    }
+    .a365-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 52px;
+      counter-reset: steps;
+    }
+    .a365-step {
+      text-align: center;
+      padding: 32px 20px;
+      position: relative;
+    }
+    .a365-step-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.12);
+      border: 2px solid rgba(16,185,129,0.3);
+      color: #34d399;
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .a365-step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .a365-step p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* ── Privacy pill ─────────────────────────────────────── */
+    .a365-privacy {
+      background: rgba(16,185,129,0.06);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin: 72px 0;
+    }
+    .a365-privacy-icon { font-size: 32px; flex-shrink: 0; margin-top: 2px; }
+    .a365-privacy h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .a365-privacy p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+    .a365-privacy a { color: #34d399; text-decoration: none; }
+    .a365-privacy a:hover { text-decoration: underline; }
+
+    /* ── Download CTA ─────────────────────────────────────── */
+    .a365-download {
+      text-align: center;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .a365-download-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(16,185,129,0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .a365-download h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .a365-download p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+    .appstore-badge {
+      display: inline-block;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .appstore-badge:hover { transform: translateY(-3px); opacity: 0.9; }
+    .appstore-badge img { height: 52px; width: auto; }
+
+    /* ── Breadcrumb ───────────────────────────────────────── */
+    .a365-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .a365-back:hover { color: #34d399; }
+
+    @media (max-width: 640px) {
+      .a365-stats { gap: 32px; }
+      .a365-privacy { flex-direction: column; }
+    }
+  </style>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="a365-hero">
+    <div class="a365-hero-bg"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <a href="/" class="a365-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Nano Synapsys
+      </a>
+
+      <div style="display:flex;justify-content:center;margin-bottom:28px;">
+        <span class="a365-badge"><span class="dot"></span>Now on the App Store</span>
+      </div>
+
+      <h1>Stay active<br /><em>365 days</em> a year.</h1>
+
+      <p>
+        Set a workout goal — monthly or yearly — log every session on a beautiful
+        calendar, and watch your consistency compound. No subscription. No sign-up.
+        Just you and your streak.
+      </p>
+
+      <div class="a365-cta-row">
+        <a
+          href="https://apps.apple.com/app/activ365/id6744648823"
+          target="_blank"
+          rel="noopener"
+          class="btn-emerald"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on the App Store
+        </a>
+        <a href="#features" class="btn-ghost-sm">See features</a>
+      </div>
+
+      <div class="a365-phone-wrap fade-up">
+        <div class="a365-phone-glow"></div>
+        <img
+          src="/screenshots/activ365.png"
+          alt="Activ365 iOS app — home screen with goal progress and calendar"
+          class="a365-phone-img"
+          width="640"
+          height="800"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats ─────────────────────────────────────────────── -->
+  <div class="container">
+    <div class="a365-stats fade-up">
+      <div class="text-center">
+        <div class="a365-stat-num">365</div>
+        <div class="a365-stat-label">Days tracked</div>
+      </div>
+      <div class="text-center">
+        <div class="a365-stat-num">6</div>
+        <div class="a365-stat-label">Workout types</div>
+      </div>
+      <div class="text-center">
+        <div class="a365-stat-num">3</div>
+        <div class="a365-stat-label">Languages</div>
+      </div>
+      <div class="text-center">
+        <div class="a365-stat-num">0</div>
+        <div class="a365-stat-label">Data collected</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Features ──────────────────────────────────────────── -->
+  <section class="a365-features" id="features">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-tag">Features</p>
+        <h2 class="section-title">Everything you need.<br />Nothing you don't.</h2>
+        <p class="section-desc">
+          Activ365 strips away the bloat. Set your goal, log your sessions, see your progress.
+        </p>
+      </div>
+
+      <div class="a365-features-grid">
+        <div class="a365-feat fade-up">
+          <span class="a365-feat-icon">🎯</span>
+          <h3>Monthly & Yearly Goals</h3>
+          <p>Choose how many workouts you want to hit each month or across the whole year. The app keeps you honest with a live progress ring.</p>
+        </div>
+        <div class="a365-feat fade-up delay-1">
+          <span class="a365-feat-icon">📅</span>
+          <h3>Calendar View</h3>
+          <p>Every logged day turns green on the calendar. At a glance you can see your streaks, gaps, and how far you've come this month.</p>
+        </div>
+        <div class="a365-feat fade-up delay-2">
+          <span class="a365-feat-icon">💪</span>
+          <h3>6 Workout Types</h3>
+          <p>Log Strength Training, Cardio, Martial Arts, CrossFit, Sports, or Other. Add personal notes to each session to remember the details.</p>
+        </div>
+        <div class="a365-feat fade-up">
+          <span class="a365-feat-icon">📊</span>
+          <h3>Weekly, Monthly & Annual Views</h3>
+          <p>Switch between three time-period views to understand your patterns — day-by-day, month-by-month, or the full year at a glance.</p>
+        </div>
+        <div class="a365-feat fade-up delay-1">
+          <span class="a365-feat-icon">🏆</span>
+          <h3>Full Goal History</h3>
+          <p>Every completed period is archived automatically. See your evolution across months and years — did you hit your target or fall short?</p>
+        </div>
+        <div class="a365-feat fade-up delay-2">
+          <span class="a365-feat-icon">🎨</span>
+          <h3>7 Colour Themes</h3>
+          <p>Personalise the app with Emerald, Ocean, Sunset, Violet, Rose, Slate, or Graphite. Your fitness app, your colours.</p>
+        </div>
+        <div class="a365-feat fade-up">
+          <span class="a365-feat-icon">🌍</span>
+          <h3>English, Spanish & Portuguese</h3>
+          <p>Activ365 is available in three languages. The app detects your device language automatically and switches on first launch.</p>
+        </div>
+        <div class="a365-feat fade-up delay-1">
+          <span class="a365-feat-icon">🔒</span>
+          <h3>100% Offline & Private</h3>
+          <p>All data lives on your device. No account, no cloud sync, no analytics — your workout history belongs to you, not a server.</p>
+        </div>
+        <div class="a365-feat fade-up delay-2">
+          <span class="a365-feat-icon">✅</span>
+          <h3>Free Forever</h3>
+          <p>No subscription, no in-app purchases, no premium tier. Activ365 is free because consistency shouldn't cost a monthly fee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it works ───────────────────────────────────────── -->
+  <section class="a365-how">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-tag">How it works</p>
+        <h2 class="section-title">Up and running in 60 seconds.</h2>
+      </div>
+      <div class="a365-steps">
+        <div class="a365-step fade-up">
+          <div class="a365-step-num">1</div>
+          <h3>Set your goal</h3>
+          <p>Choose Monthly or Yearly and enter your target number of workouts. That's the only setup required.</p>
+        </div>
+        <div class="a365-step fade-up delay-1">
+          <div class="a365-step-num">2</div>
+          <h3>Log every session</h3>
+          <p>Tap any day on the calendar, pick a workout type, add a note if you like, and save. Done in seconds.</p>
+        </div>
+        <div class="a365-step fade-up delay-2">
+          <div class="a365-step-num">3</div>
+          <h3>Watch the green spread</h3>
+          <p>Your calendar fills with green as you log workouts. The progress ring tracks how close you are to your goal.</p>
+        </div>
+        <div class="a365-step fade-up delay-3">
+          <div class="a365-step-num">4</div>
+          <h3>Celebrate & repeat</h3>
+          <p>Hit your target and the app celebrates with you. Set a new goal and keep the momentum going.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Privacy ────────────────────────────────────────────── -->
+  <div class="container">
+    <div class="a365-privacy fade-up">
+      <span class="a365-privacy-icon">🛡️</span>
+      <div>
+        <h3>Your data never leaves your phone.</h3>
+        <p>
+          Activ365 collects zero personal data. No analytics SDK, no advertising framework,
+          no cloud account. Every workout you log stays in local storage on your device and
+          is never transmitted anywhere. Read our full
+          <a href="/activ365/privacy">Privacy Policy</a> and
+          <a href="/activ365/terms">Terms &amp; Conditions</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Download CTA ───────────────────────────────────────── -->
+  <section class="a365-download">
+    <div class="a365-download-bg"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <h2>Start your streak<br />today.</h2>
+      <p>Free download. No account. Open the app and start logging.</p>
+      <a
+        href="https://apps.apple.com/app/activ365/id6744648823"
+        target="_blank"
+        rel="noopener"
+        class="appstore-badge"
+        aria-label="Download Activ365 on the App Store"
+      >
+        <svg height="52" viewBox="0 0 135 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="135" height="40" rx="7" fill="#000"/>
+          <text x="38" y="13" fill="#fff" font-family="-apple-system,sans-serif" font-size="7.5" letter-spacing="0.3">Download on the</text>
+          <text x="36" y="27" fill="#fff" font-family="-apple-system,sans-serif" font-size="14" font-weight="600" letter-spacing="0.2">App Store</text>
+          <path d="M18.71 29.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 27 2.94 22.45 4.7 19.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 13.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#fff"/>
+        </svg>
+      </a>
+      <p style="margin-top:24px;font-size:13px;color:var(--text-dim);">
+        Built by <a href="/" style="color:#34d399;text-decoration:none;">Nano Synapsys</a> ·
+        <a href="/activ365/privacy" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a> ·
+        <a href="/activ365/terms" style="color:var(--text-muted);text-decoration:none;">Terms &amp; Conditions</a>
+      </p>
+    </div>
+  </section>
+
+</Base>

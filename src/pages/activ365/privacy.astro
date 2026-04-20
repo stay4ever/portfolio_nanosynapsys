@@ -1,0 +1,173 @@
+---
+import Base from '../../layouts/Base.astro';
+export const prerender = true;
+---
+
+<Base
+  title="Privacy Policy — Activ365"
+  description="Activ365 Privacy Policy — we collect no personal data. All workout data stays on your device."
+>
+  <style>
+    .legal-hero { padding: 80px 0 40px; }
+    .legal-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+    .legal-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 40px 0 12px;
+    }
+    .legal-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 8px;
+    }
+    .legal-body p { margin: 0 0 14px; }
+    .legal-body ul { margin: 0 0 14px; padding-left: 22px; }
+    .legal-body ul li { margin-bottom: 6px; }
+    .legal-body a { color: #34d399; text-decoration: none; }
+    .legal-body a:hover { text-decoration: underline; }
+    .legal-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .legal-back:hover { color: #34d399; }
+    .app-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #34d399;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+  </style>
+
+  <section class="legal-hero">
+    <div class="container">
+      <a href="/activ365" class="legal-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Activ365
+      </a>
+      <div class="app-tag">
+        <span>✅</span> ACTIV365
+      </div>
+      <h1 style="font-size:clamp(32px,5vw,56px);margin-bottom:12px;">Privacy Policy</h1>
+      <p style="color:var(--text-muted);font-size:15px;">Last updated: 20 April 2026</p>
+    </div>
+  </section>
+
+  <div class="legal-body">
+
+    <h2>1. Overview</h2>
+    <p>
+      Activ365 ("the App") is published by Nano Synapsys (ABN pending), based in Australia.
+      This Privacy Policy explains what data the App handles, what it does not collect, and
+      your rights as a user. It complies with the Apple App Store guidelines and the
+      Australian Privacy Act 1988.
+    </p>
+
+    <h2>2. No Account, No Personal Information</h2>
+    <p>
+      Activ365 does not require an account, email address, or any personal information to use.
+      There is no sign-in, no sign-up, and no third-party login of any kind. You can install
+      the App and start tracking immediately.
+    </p>
+
+    <h2>3. Data We Do Not Collect</h2>
+    <p>The App does not collect, store remotely, or transmit any of the following:</p>
+    <ul>
+      <li>Names, email addresses, phone numbers, or any contact details</li>
+      <li>Apple ID or any third-party account identifier</li>
+      <li>Location, contacts, photos, microphone, or camera data</li>
+      <li>Browsing history or device fingerprints</li>
+      <li>Advertising identifiers — the App contains no advertising SDKs</li>
+      <li>Health or fitness data beyond what you type directly into the App</li>
+      <li>Analytics, crash reports, or usage telemetry sent to any server</li>
+    </ul>
+
+    <h2>4. Data Stored Locally on Your Device</h2>
+    <p>
+      The App stores the following data <strong>exclusively on your device</strong> using
+      local browser storage (via the Capacitor WebView):
+    </p>
+    <ul>
+      <li>Your workout goal (period and target number)</li>
+      <li>Logged workout entries (date, type, optional notes)</li>
+      <li>Completed goal history</li>
+      <li>App preferences (colour theme, language)</li>
+    </ul>
+    <p>
+      This data never leaves your device. It is not synced to any cloud service, not shared
+      with any third party, and not accessible to Nano Synapsys.
+    </p>
+
+    <h2>5. Privacy Manifest (Apple Requirement)</h2>
+    <p>
+      As required by Apple, the App includes a <code>PrivacyInfo.xcprivacy</code> manifest
+      declaring the following:
+    </p>
+    <ul>
+      <li><strong>NSPrivacyTracking:</strong> false — the App does not track users</li>
+      <li><strong>NSPrivacyCollectedDataTypes:</strong> empty — no data is collected</li>
+      <li>
+        <strong>NSPrivacyAccessedAPITypes:</strong> UserDefaults (reason CA92.1) — used only
+        to store app-scoped preferences and workout data locally on the device
+      </li>
+    </ul>
+
+    <h2>6. Third-Party Services</h2>
+    <p>
+      Activ365 does not integrate any third-party analytics, advertising, or crash-reporting
+      services. The App is built with React and Capacitor — all dependencies operate entirely
+      on-device.
+    </p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>
+      The App is rated 4+ on the App Store. Because no personal data is collected, the App is
+      safe for users of all ages. We do not knowingly collect any information from children.
+    </p>
+
+    <h2>8. Data Deletion</h2>
+    <p>
+      To delete all your data, go to <strong>Settings → Danger Zone → Reset Goal</strong>
+      inside the App, or simply delete the App from your device. All locally stored data
+      is removed when the App is uninstalled.
+    </p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>
+      We may update this policy if the App's functionality changes. The "Last updated" date
+      at the top of this page reflects the most recent revision. Continued use of the App
+      after changes constitutes acceptance of the updated policy.
+    </p>
+
+    <h2>10. Contact</h2>
+    <p>
+      Questions about this Privacy Policy? Contact us at:<br />
+      <a href="mailto:support@nano-synapsys.com">support@nano-synapsys.com</a>
+    </p>
+
+    <p style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);">
+      <a href="/activ365/terms">Terms &amp; Conditions →</a> &nbsp;·&nbsp;
+      <a href="/activ365">Back to Activ365</a> &nbsp;·&nbsp;
+      <a href="/">Nano Synapsys</a>
+    </p>
+  </div>
+</Base>
