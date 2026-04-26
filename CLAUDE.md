@@ -71,10 +71,11 @@ public/
 
 | Product | URL | Accent colour |
 |---|---|---|
-| Nanoplasticity | nanoplasticity.com | Violet |
 | AI Evolution | ai-evolution.com.au | Cyan |
+| AI Academy | ai-evolution.com.au/academy | Green |
 | KickWiz | App Store (AFL prediction) | Amber |
-| Coming Soon | — | Ghost/dim |
+| DeservePetGo | deservepetgo.com.au | Rose |
+| Activ365 | iOS (Health & Fitness) | Emerald |
 
 ---
 

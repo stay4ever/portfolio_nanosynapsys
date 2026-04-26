@@ -16,13 +16,15 @@ We operate in what we call **nano-company mode**: maximum output, minimum overhe
 
 ## What We're Building
 
-Our portfolio today spans three distinct markets:
-
-**[Nanoplasticity](https://www.nanoplasticity.com)** — An AI agent marketplace for digital agencies and freelancers. Deploy pre-built Claude-powered agents that run SEO audits, write proposals, detect fraud, and generate white-label client reports. Pay per run, own the output.
+Our portfolio today spans several distinct markets:
 
 **[AI Evolution](https://www.ai-evolution.com.au)** — Australia's AI education and intelligence platform. 26 hands-on courses, a twice-weekly newsletter called *The Pulse*, and an AI Readiness Quiz — all designed to turn AI anxiety into competitive advantage.
 
 **KickWiz** — An AFL prediction app powered by five specialised AI models. Whether you want to pick match winners, predict player stats, or simulate season outcomes — KickWiz brings real intelligence to the game.
+
+**[DeservePetGo](https://www.deservepetgo.com.au)** — An Australian-owned online store for premium pet supplies across dogs, cats, birds, small animals, and aquariums.
+
+**Activ365** — A daily workout-goal tracker for iOS. Set a monthly or yearly goal, track every session on a beautiful calendar, and stay consistent year-round.
 
 ## What's Next
 
